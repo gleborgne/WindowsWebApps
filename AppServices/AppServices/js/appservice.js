@@ -1,4 +1,5 @@
-﻿//importScripts("/WinJS/js/WinJS.js");
+﻿//import the scripts you need :
+//importScripts("/WinJS/js/WinJS.js");
 
 var bgtask = this;
 var AppService = Windows.ApplicationModel.AppService;
@@ -7,44 +8,63 @@ var ValueSet = Windows.Foundation.Collections.ValueSet;
 (function () {
     "use strict";
 
+    //get background task instance and activation details
     var backgroundTaskInstance = Windows.UI.WebUI.WebUIBackgroundTaskInstance.current;
-    var deferral = backgroundTaskInstance.getDeferral();
     var triggerDetails = backgroundTaskInstance.triggerDetails;
+    //get deferral on background task to notify when service is done
+    var bgtaskDeferral = backgroundTaskInstance.getDeferral();
 
-    function endTask() {
+    //ensure everything is closed appropriately
+    function endBgTask() {
         backgroundTaskInstance.succeeded = true;
-        deferral.complete();
+        bgtaskDeferral.complete();
         bgtask.close();
     }
 
+    //as with any background task, it could be terminated by the system, for example to recover memory
     backgroundTaskInstance.addEventListener("canceled", function onCanceled(cancelEventArg) {
-        return endTask();
+        return endBgTask();
     });
+
+    //command processors callbacks
+    var requestProcessors = {
+        "CalcSum": function (request, message, endCall) {
+            var result = message.Value1 + message.Value2;
+            var returnMessage = new ValueSet();
+            returnMessage.insert("Result", result);
+            request.sendResponseAsync(returnMessage).then(endCall, endCall);
+        },
+
+        "CloseService": function (request, message, endCall) {
+            endCall();
+            endBgTask();
+        }
+    }
+
+    //process incoming request
+    function requestReceived(appServiceCall) {
+        var deferral = appServiceCall.getDeferral();
+        var endCall = function () {
+            deferral.complete();
+        }
+        var request = appServiceCall.request;
+        var message = appServiceCall.request.message;
+
+        if (message.Command){
+            var processor = requestProcessors[message.Command];
+            if (processor){
+                processor(request, message, endCall);
+                return;
+            }
+        }
+        endCall();
+    }
 
     if (triggerDetails && triggerDetails.name == 'MyJavascriptAppService') {
         triggerDetails.appServiceConnection.onrequestreceived = function (args) {
             if (args.detail && args.detail.length) {
-                var appServiceCall = args.detail[0];
-                var deferral = appServiceCall.getDeferral();
-                var endCall = function () {
-                    deferral.complete();
-                }
-                var request = appServiceCall.request;
-                var message = appServiceCall.request.message;
-
-                if (message.Command && message.Command === 'CalcSum') {
-                    var result = message.Value1 + message.Value2;
-                    var returnMessage = new ValueSet();
-                    returnMessage.insert("Result", result);
-                    request.sendResponseAsync(returnMessage).then(endCall, endCall);
-                } else {
-                    endCall();
-                }
+                requestReceived(args.detail[0]);                
             }
-        }
-
-        triggerDetails.appServiceConnection.onserviceclosed = function (args) {
-            endTask();
-        }
+        }        
     }
 })();

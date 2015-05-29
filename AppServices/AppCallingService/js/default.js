@@ -27,10 +27,19 @@
 	app.start();
 
 	WinJS.Utilities.ready(function () {
-	    var btn = document.getElementById('btnCall');
-	    btn.addEventListener('click', function () {
-	        callAppService().then(function success() {
-                console.log('success')
+	    var calcBtn = document.getElementById('btnCalc');
+	    calcBtn.addEventListener('click', function () {
+	        calcSum().then(function success(message) {
+	            console.log('app service respond ' + message.Result);
+	        }, function error(err) {
+	            console.error(err);
+	        });
+	    });
+
+	    var closeBtn = document.getElementById('btnClose');
+	    closeBtn.addEventListener('click', function () {
+	        closeService().then(function success(message) {
+	            console.log('app service closed');
 	        }, function error(err) {
 	            console.error(err);
 	        });
@@ -39,26 +48,73 @@
 
 	var AppService = Windows.ApplicationModel.AppService;
 	var ValueSet = Windows.Foundation.Collections.ValueSet;
+	var serviceConnection = null;
 
+	function calcSum() {
+	    var d = new Date();
+	    var key = 'calling sum ' + d.toISOString();
+	    console.time(key);
+	    var endcall = function () {
+	        console.timeEnd(key);
+	    }
 
-	function callAppService() {
 	    return getServiceConnection().then(function (connection) {
 	        var message = new ValueSet();
+	        var val1 = document.getElementById('txtValue1').value;
+	        var val2 = document.getElementById('txtValue2').value;
+
+	        if (!val1 || !val2) {
+	            document.getElementById('result').innerHTML = "it works better with inputs";
+	            return;
+	        }
+
 	        message.insert("Command", "CalcSum");
-	        message.insert("Value1", 8);
-	        message.insert("Value2", 42);
+	        message.insert("Value1", parseFloat(val1));
+	        message.insert("Value2", parseFloat(val2));
 
 	        return connection.sendMessageAsync(message).then(function (response) {
 	            var e = response;
 	            if (response.status === AppService.AppServiceResponseStatus.success) {
-	                console.log('app service respond ' + response.message.Result);
+	                document.getElementById('result').innerHTML = 'calculated ' + response.message.Result;
+	                
+	                return response.message;
+	            }
+	        });
+	    }).then(function (r) {
+	        endcall();
+	        return r;
+	    }, function (err) {
+	        endcall();
+	        return WinJS.Promise.wrapError(err);
+	    });
+	}
+
+	function closeService() {
+	    return getServiceConnection().then(function (connection) {
+	        var message = new ValueSet();	        
+
+            //for doing this, you could also call connection.close() but it's not as fun :-)
+
+	        message.insert("Command", "CloseService");
+
+	        return connection.sendMessageAsync(message).then(function (response) {
+	            var e = response;
+	            if (response.status === AppService.AppServiceResponseStatus.success) {
+	                document.getElementById('result').innerHTML = 'service closed';
+	                return response.message;
 	            }
 	        });
 	    })
 	}
 
 	function getServiceConnection() {
+	    if (serviceConnection) {
+	        return WinJS.Promise.wrap(serviceConnection);
+	    }
+
 	    var connection = new AppService.AppServiceConnection();
+        
+	    serviceConnection = connection;
 
 	    // See the appx manifest of the AppServicesDemp app for this value
 	    connection.appServiceName = "MyJavascriptAppService";
@@ -82,6 +138,7 @@
 	}
 
 	function serviceClosed() {
-
+	    console.log('service was closed');
+	    serviceConnection = null;
 	}
 })();

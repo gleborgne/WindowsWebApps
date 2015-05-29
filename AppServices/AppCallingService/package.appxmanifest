@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  IgnorableNamespaces="uap mp">
+
+	<Identity
+	  Name="2d6c5245-b217-4ae1-bbcf-b4ef5f3f502c"
+	  Version="1.0.0.0"
+	  Publisher="CN=Guillaume" />
+
+	<mp:PhoneIdentity PhoneProductId="2d6c5245-b217-4ae1-bbcf-b4ef5f3f502c" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+	<Properties>
+		<DisplayName>AppCallingService</DisplayName>
+		<PublisherDisplayName>Guillaume</PublisherDisplayName>
+		<Logo>images\storelogo.png</Logo>
+	</Properties>
+
+	<Dependencies>
+		<TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10069.0" MaxVersionTested="10.0.10069.0" />
+	</Dependencies>
+
+	<Resources>
+		<Resource Language="x-generate" />
+	</Resources>
+
+	<Applications>
+		<Application
+		  Id="App"
+		  StartPage="default.html">
+
+			<uap:VisualElements
+			  DisplayName="AppCallingService"
+			  Description="AppCallingService"
+			  BackgroundColor="#464646"
+			  Square150x150Logo="images\Logo.png"
+			  Square44x44Logo="images\SmallLogo.png">
+
+				<uap:SplashScreen Image="images\splashscreen.png" />
+
+			</uap:VisualElements>
+		</Application>
+	</Applications>
+
+	<Capabilities>
+		<Capability Name="internetClient" />
+	</Capabilities>
+
+</Package>

@@ -80,13 +80,10 @@ var _global = this;
 
     if (triggerDetails && triggerDetails.name == 'FunWithCortanaAppService') {
         var voiceServiceConnection = Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection.fromAppServiceTriggerDetails(triggerDetails);
-
-        (<any>voiceServiceConnection).addEventListener("voicecommandcompleted", function (connection, arg) {
-            var e = connection;
-        });
-        //voiceServiceConnection.onvoicecommandcompleted = function (connection: Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection, arg: Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs) {
-        //    endBgTask();
-        //}
+        
+        voiceServiceConnection.onvoicecommandcompleted = function (connection: Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection, arg: Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs) {
+            endBgTask();
+        }
 
         voiceServiceConnection.getVoiceCommandAsync().then(function (command) {
             return requestReceived(voiceServiceConnection, command);

@@ -102,7 +102,9 @@
     <Content Include="scripts\winjscontrib\winjscontrib.ui.navigator.min.js" />
     <Content Include="scripts\winjscontrib\winjscontrib.winrt.core.js" />
     <Content Include="scripts\winjscontrib\winjscontrib.winrt.core.min.js" />
-    <Content Include="VoiceCommands.xml" />
+    <Content Include="VoiceCommands.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="WinJS\css\ui-dark.css" />
     <Content Include="WinJS\css\ui-dark.min.css" />
     <Content Include="WinJS\css\ui-light.css" />

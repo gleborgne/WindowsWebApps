@@ -1,4 +1,4 @@
-//import the scripts you need :
+﻿//import the scripts you need :
 importScripts("/WinJS/js/base.js");
 importScripts("/js/app.data.js");
 var bgtask = this;
@@ -37,7 +37,7 @@ var _global = this;
                         var tile = new Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile();
                         tile.title = trip.nameEn;
                         tile.textLine1 = "tetst";
-                        tile.contentTileType = 1 /* titleWithText */;
+                        tile.contentTileType = Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType.titleWithText;
                         tile.appLaunchArgument = "destination=" + trip.nameEn;
                         commandTiles.push(tile);
                     });
@@ -73,12 +73,9 @@ var _global = this;
     }
     if (triggerDetails && triggerDetails.name == 'FunWithCortanaAppService') {
         var voiceServiceConnection = Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection.fromAppServiceTriggerDetails(triggerDetails);
-        voiceServiceConnection.addEventListener("voicecommandcompleted", function (connection, arg) {
-            var e = connection;
-        });
-        //voiceServiceConnection.onvoicecommandcompleted = function (connection: Windows.ApplicationModel.VoiceCommands.VoiceCommandServiceConnection, arg: Windows.ApplicationModel.VoiceCommands.VoiceCommandCompletedEventArgs) {
-        //    endBgTask();
-        //}
+        voiceServiceConnection.onvoicecommandcompleted = function (connection, arg) {
+            endBgTask();
+        };
         voiceServiceConnection.getVoiceCommandAsync().then(function (command) {
             return requestReceived(voiceServiceConnection, command);
         });

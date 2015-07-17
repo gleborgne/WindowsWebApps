@@ -39,17 +39,19 @@
 		<Example> Show trip London </Example>
 
 		<Command Name="showTripToDestination">
-			<Example> Show trip to London </Example>
-			<ListenFor RequireAppName="BeforeOrAfterPhrase"> show [my] trip to {destination} </ListenFor>
-			<ListenFor RequireAppName="ExplicitlySpecified"> show [my] {builtin:AppName} trip to {destination} </ListenFor>
+			<Example> Affiche mon voyage à Paris </Example>
+			<ListenFor RequireAppName="BeforeOrAfterPhrase"> Affiche mon voyage à {destination} </ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> Affiche mon voyage pour {destination} </ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> Affiche mon voyage {builtin:AppName} à {destination} </ListenFor>
 			<Feedback> Showing trip to {destination} </Feedback>
 			<Navigate />
 		</Command>
 
 		<Command Name="whenIsTripToDestination">
-			<Example> When is my trip to Las Vegas?</Example>
-			<ListenFor RequireAppName="BeforeOrAfterPhrase"> when is [my] trip to {destination}</ListenFor>
-			<ListenFor RequireAppName="ExplicitlySpecified"> when is [my] {builtin:AppName} trip to {destination} </ListenFor>
+			<Example> A quelle heure est mon voyage à Paris ?</Example>
+			<ListenFor RequireAppName="BeforeOrAfterPhrase"> A quelle heure est mon voyage à {destination} ?</ListenFor>
+      <ListenFor RequireAppName="BeforeOrAfterPhrase"> A quelle heure est mon voyage pour {destination} ?</ListenFor>
+      <ListenFor RequireAppName="ExplicitlySpecified"> when is [my] {builtin:AppName} trip to {destination} </ListenFor>
 			<Feedback> Looking for trip to {destination}</Feedback>
 			<VoiceCommandService Target="FunWithCortanaAppService"/>
 		</Command>

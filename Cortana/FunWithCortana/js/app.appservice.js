@@ -37,7 +37,7 @@ var _global = this;
                         var tile = new Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTile();
                         tile.title = trip.nameEn;
                         tile.textLine1 = "tetst";
-                        tile.contentTileType = Windows.ApplicationModel.VoiceCommands.VoiceCommandContentTileType.titleWithText;
+                        tile.contentTileType = 1 /* titleWithText */;
                         tile.appLaunchArgument = "destination=" + trip.nameEn;
                         commandTiles.push(tile);
                     });

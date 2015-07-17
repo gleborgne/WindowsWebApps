@@ -1,0 +1,31 @@
+﻿body, html {
+    position: relative;
+    font-family: "Segoe UI";
+}
+
+#contenthost{
+    position: relative;
+}
+
+.fragment {
+	-ms-grid-columns: 1fr;
+	-ms-grid-rows: 80px 1fr;
+	display: -ms-grid;
+	height: 100%;
+	width: 100%;
+
+    > header[role=banner] {
+		display: flex;
+        flex-flow : row nowrap;
+        align-items: center;
+
+        .titlearea{
+            flex: 1;
+        }
+	}
+
+    > section[role=main] {
+		-ms-grid-row: 2;
+		height: 100%;
+	}
+}

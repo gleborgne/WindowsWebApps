@@ -1,0 +1,1 @@
+This sample illustrate using WinJS in a Windows Web Hosted Application (Windows 10), relying on appcache to manage ressource files

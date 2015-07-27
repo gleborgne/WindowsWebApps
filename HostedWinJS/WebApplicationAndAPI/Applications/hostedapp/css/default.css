@@ -1,0 +1,859 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+h1 {
+  font-size: 1.8em;
+  letter-spacing: 0;
+  font-weight: 200;
+}
+h2 {
+  font-size: 1.6em;
+  letter-spacing: 0;
+  font-weight: 200;
+}
+h3 {
+  font-size: 1.5em;
+}
+h4 {
+  font-size: 1.4em;
+}
+h5 {
+  font-size: 1.3em;
+}
+h6 {
+  font-size: 1.2em;
+}
+select {
+  min-width: 56px;
+  max-width: 368px;
+  min-height: 32px;
+  margin: 8px 0;
+  border: 2px solid #DDD;
+  background-clip: border-box;
+  background-image: none;
+  box-sizing: border-box;
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.333;
+}
+select::-ms-value {
+  padding: 5px 12px 7px 12px;
+  margin: 0;
+}
+select::-ms-expand {
+  border: none;
+  padding: 0 0.2em;
+  /*margin-right: 5px;*/
+  margin-left: 3px;
+  margin-bottom: -2px;
+  font-size: 20px;
+}
+select[multiple] {
+  padding: 0 0 0 12px;
+  vertical-align: bottom;
+}
+option {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.333;
+}
+progress {
+  width: 180px;
+  height: 4px;
+  -webkit-appearance: none;
+}
+progress:not(:indeterminate) {
+  border-style: none;
+}
+progress::-ms-fill {
+  border-style: none;
+}
+progress.win-medium {
+  width: 296px;
+}
+progress.win-large {
+  width: 100%;
+}
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=tel],
+input[type=url],
+input[type=search],
+textarea,
+.win-textarea {
+  -ms-user-select: element;
+  border: 2px solid #DDD;
+  border-radius: 0;
+  margin: 8px 0px;
+  width: 296px;
+  min-width: 64px;
+  min-height: 28px;
+  background-clip: border-box;
+  box-sizing: border-box;
+  padding: 3px 6px 5px 10px;
+  outline: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.333;
+}
+input::-ms-value {
+  margin: 0;
+  padding: 0;
+}
+textarea,
+.win-textarea {
+  resize: none;
+  overflow-y: auto;
+}
+input[type=radio],
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+input::-ms-check {
+  border-style: solid;
+  display: inline-block;
+  border-width: 2px;
+  background-clip: border-box;
+}
+input::-ms-clear,
+input::-ms-reveal {
+  padding-right: 2px;
+  margin-right: -8px;
+  margin-left: 2px;
+  margin-top: -8px;
+  margin-bottom: -8px;
+  height: 32px;
+}
+button,
+input[type=button],
+input[type=reset] {
+  border: 1px solid #999;
+  background-color: #DDD;
+  padding: 0.3em 0.8em;
+  text-align: center;
+  touch-action: manipulation;
+}
+button:focus,
+input[type=button]:focus,
+input[type=reset]:focus {
+  border-color: #774c7d;
+}
+button:hover,
+input[type=button]:hover,
+input[type=reset]:hover {
+  background-color: #BBB;
+}
+button:disabled,
+input[type=button]:disabled,
+input[type=reset]:disabled {
+  opacity: 0.4;
+}
+html,
+body {
+  font-family: 'Roboto', 'Segoe UI', 'Sans Serif';
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  font-size: 12pt;
+  transition: background-color 200ms ease-out;
+}
+/*.menu-button{
+    z-index: 800;
+}
+
+.mcn-tilemenu-container, .mcn-tilemenu-overlay, .mcn-tilemenu-items{
+    z-index: 801;
+}*/
+html.connected body {
+  background-color: #EEE;
+}
+#appheader {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  background-color: #111;
+}
+#contentwrapper {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+#contenthost {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  transform: translate3d(0, 0, 0);
+  transition: transform 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: hidden;
+}
+#contenthost > .pagecontrol {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+.fragment {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.fragment.panel header[role=banner] {
+  padding-left: 0;
+}
+.fragment header[role=banner] {
+  display: flex;
+  color: white;
+  height: 60px;
+  padding-left: 60px;
+  background-color: #774c7d;
+  /*padding-left: 20px;*/
+}
+.fragment header[role=banner] .win-back {
+  color: white;
+}
+.fragment header[role=banner] .win-backbutton {
+  align-self: center;
+  position: relative;
+  z-index: 1;
+  color: white;
+  background-color: #6e4673;
+  height: 60px;
+  width: 60px;
+  padding-top: 10px;
+  cursor: pointer;
+}
+.fragment header[role=banner] .titlearea {
+  align-self: center;
+  flex-grow: 1;
+  font-size: 1.8rem;
+  line-height: 1.3em;
+  margin-left: 20px;
+}
+.fragment header[role=banner] .titlearea .pagetitle {
+  width: 100%;
+}
+.fragment header[role=banner] .actions,
+.fragment header[role=banner] .header-actions {
+  display: flex;
+  margin-right: 5px;
+}
+.fragment header[role=banner] .actions .action,
+.fragment header[role=banner] .header-actions .action {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  align-self: center;
+  text-align: center;
+  margin-left: 5px;
+  color: white;
+}
+.fragment header[role=banner] .actions .action.btnQuickNote,
+.fragment header[role=banner] .header-actions .action.btnQuickNote {
+  background-color: #444;
+  font-size: 1.2rem;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+.fragment header[role=banner] .actions .action.btnQuickNote.has-note,
+.fragment header[role=banner] .header-actions .action.btnQuickNote.has-note {
+  background-color: darkred;
+}
+.fragment section[role=main] {
+  height: calc(100% - 60px);
+}
+.childNavigator .childNavigator-contentPlaceholder {
+  background-color: #DDD;
+}
+.list-reports,
+.list-factures {
+  width: 100%;
+  height: calc(100% - 40px);
+}
+.list-reports .win-surface .win-container:hover,
+.list-factures .win-surface .win-container:hover {
+  outline: none;
+}
+.list-reports .win-surface .win-container .win-itembox,
+.list-factures .win-surface .win-container .win-itembox {
+  background-color: transparent;
+}
+.list-reports .win-surface .win-container .win-itembox:hover::before,
+.list-factures .win-surface .win-container .win-itembox:hover::before {
+  border: none;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture {
+  height: 130px;
+  box-sizing: border-box;
+  position: relative;
+  line-height: 1.2em;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .date,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .date,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .date,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .date {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 60px;
+  height: 60px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: #774c7d;
+  color: white;
+  border: 2px solid white;
+  text-align: center;
+  padding-top: 10px;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .date .day,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .date .day,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .date .day,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .date .day {
+  font-size: 1.3rem;
+  line-height: 1em;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .date .month,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .date .month,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .date .month,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .date .month {
+  line-height: 1rem;
+  font-size: 0.8rem;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .client,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .client,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .client,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .client {
+  position: absolute;
+  left: 10px;
+  width: 60px;
+  height: 60px;
+  top: 70px;
+  background-color: white;
+  padding: 5px;
+  box-sizing: border-box;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .client .logo,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .client .logo,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .client .logo,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .client .logo {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail {
+  position: absolute;
+  left: 80px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  color: #777;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  padding: 10px;
+  border-left: 8px solid #E7E6E6;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-do,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-do,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail.prd-do,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail.prd-do {
+  border-left-color: #548235;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-rd,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-rd,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail.prd-rd,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail.prd-rd {
+  border-left-color: #FFC000;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-pj,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-pj,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail.prd-pj,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail.prd-pj {
+  border-left-color: #1F4E79;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail.tmi-rcent,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail.tmi-rcent,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail.tmi-rcent,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail.tmi-rcent {
+  border-left-color: #ED7D31;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .pictocard,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .pictocard,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .pictocard,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .pictocard {
+  min-width: 0;
+  font-family: 'Segoe UI Symbol';
+  padding-top: 0;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .header .nummission,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .header .nummission,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .header .nummission,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .header .nummission {
+  font-size: 1.2rem;
+  color: black;
+  margin-bottom: 3px;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .header,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .header,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .header,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .header {
+  margin-bottom: 4px;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .content,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .content,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .content,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .content {
+  display: flex;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .content .peoples,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .content .peoples,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .content .peoples,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .content .peoples {
+  font-size: 1.1rem;
+  line-height: 1.3em;
+  margin-right: 20px;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .content .dates,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .content .dates,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .content .dates,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .content .dates {
+  margin-right: 20px;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .retard,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .retard,
+.list-reports .win-surface .win-container .win-itembox .win-template .facture .retard,
+.list-factures .win-surface .win-container .win-itembox .win-template .facture .retard {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  font-size: 10pt;
+  text-align: center;
+  /*border-radius: 50%;*/
+  background-color: #e33e3e;
+  color: white;
+  overflow: hidden;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail {
+  border-left: 4px solid #E7E6E6;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-do,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-do {
+  border-left-color: #548235;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-rd,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-rd {
+  border-left-color: #FFC000;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-pj,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail.prd-pj {
+  border-left-color: #1F4E79;
+}
+.list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail.tmi-rcent,
+.list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail.tmi-rcent {
+  border-left-color: #ED7D31;
+}
+.list-reports .zoomedinlist .list-group,
+.list-factures .zoomedinlist .list-group {
+  background-color: #CCC;
+}
+.list-reports .list-group,
+.list-factures .list-group {
+  height: 50px;
+  display: flex;
+  padding: 5px;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+.list-reports .list-group .logo,
+.list-factures .list-group .logo,
+.list-reports .list-group .label,
+.list-factures .list-group .label,
+.list-reports .list-group .count,
+.list-factures .list-group .count {
+  align-self: center;
+}
+.list-reports .list-group .count,
+.list-factures .list-group .count {
+  margin-left: 5px;
+  color: #777;
+  font-size: 1.0rem;
+  font-style: italic;
+}
+.list-reports .list-group.customer-group .logo,
+.list-factures .list-group.customer-group .logo {
+  padding: 3px;
+  width: 50px;
+  height: 50px;
+  box-sizing: border-box;
+  margin-right: 5px;
+  background-color: white;
+}
+.list-reports .list-group.customer-group .logo img,
+.list-factures .list-group.customer-group .logo img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.quick-note {
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+  transform: translate3d(140%, 0, 0);
+  transition: transform 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  background-color: white;
+}
+.quick-note.active {
+  transform: translate3d(0, 0, 0);
+}
+.quick-note > header {
+  display: flex;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+}
+.quick-note > header h3 {
+  flex: 1;
+}
+.quick-note > header .actions {
+  display: flex;
+}
+.quick-note > header .actions .action {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #DDD;
+  margin-left: 10px;
+  text-align: center;
+}
+.quick-note > section {
+  flex: 1;
+  padding: 0 10px 10px 10px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+.quick-note > section textarea {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1px solid #AAA;
+}
+.hasFilters .itemslist-page .filterbar .filters {
+  /*display: block;*/
+}
+.itemslist-page {
+  width: 100%;
+  height: 100%;
+}
+.itemslist-page .filterbar {
+  height: 40px;
+  background-color: #AAA;
+  display: flex;
+  flex-flow: row nowrap;
+}
+.itemslist-page .filterbar .title {
+  flex: 1;
+  margin-left: 10px;
+}
+.itemslist-page .filterbar .filters {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.itemslist-page .filterbar .actions {
+  margin-left: 10px;
+}
+.itemslist-page .filterbar .actions .action {
+  background-color: #777;
+  color: white;
+  font-family: 'Segoe UI Symbol';
+  font-size: 16pt;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+.itemslist-page .win-listview {
+  height: calc(100% - 40px);
+}
+.itemslist-page .filterscreen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  color: white;
+  pointer-events: none;
+}
+.itemslist-page .filterscreen .filterscreen-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.itemslist-page .filterscreen .filterscreen-content .overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  background-color: #333;
+  transition: opacity 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.itemslist-page .filterscreen .filterscreen-content .filters {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  right: 0;
+  top: 0;
+  transform: translate3d(100%, 0, 0);
+  transition: transform 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  max-width: 600px;
+  background-color: #333;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > header {
+  height: 40px;
+  border-bottom: 1px solid #444;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > header .title {
+  padding-left: 20px;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > header .actions {
+  display: flex;
+  flex-flow: row nowrap;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > header .actions .action {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-family: 'Segoe UI Symbol';
+  margin-left: 10px;
+  font-size: 16pt;
+  color: #CCC;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > header .actions .action:hover {
+  background-color: #111;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > section {
+  height: calc(100% - 40px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > section .filter-item {
+  margin-bottom: 0.4em;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > section label {
+  display: block;
+  color: #999;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > section input,
+.itemslist-page .filterscreen .filterscreen-content .filters > section select {
+  border-color: #999;
+  color: white;
+  background-color: transparent;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > section input[type=checkbox] {
+  width: 30px;
+  height: 30px;
+  box-sizing: border-box;
+  padding-left: 0;
+  margin-left: 0;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > section input[type=checkbox]::-ms-check {
+  border-color: #999;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > section input[type=text],
+.itemslist-page .filterscreen .filterscreen-content .filters > section input[type=number],
+.itemslist-page .filterscreen .filterscreen-content .filters > section select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > section input[type=text]:hover,
+.itemslist-page .filterscreen .filterscreen-content .filters > section input[type=number]:hover,
+.itemslist-page .filterscreen .filterscreen-content .filters > section select:hover,
+.itemslist-page .filterscreen .filterscreen-content .filters > section input[type=text]:focus,
+.itemslist-page .filterscreen .filterscreen-content .filters > section input[type=number]:focus,
+.itemslist-page .filterscreen .filterscreen-content .filters > section select:focus {
+  color: black;
+  background-color: #EEE;
+}
+.itemslist-page .filterscreen .filterscreen-content .filters > section .toolbar input[type=text],
+.itemslist-page .filterscreen .filterscreen-content .filters > section .toolbar input[type=number],
+.itemslist-page .filterscreen .filterscreen-content .filters > section .toolbar select {
+  width: auto;
+}
+.itemslist-page .filterscreen.visible {
+  pointer-events: all;
+}
+.itemslist-page .filterscreen.visible .filterscreen-content .overlay {
+  opacity: 0.2;
+}
+.itemslist-page .filterscreen.visible .filterscreen-content .filters {
+  transform: translate3d(0, 0, 0);
+}
+.itemslist-page .loading-state {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: #CCC;
+  display: flex;
+}
+.itemslist-page .loading-state progress {
+  color: #774c7d;
+  width: 100%;
+  align-self: center;
+  margin: auto;
+  width: 80px;
+  height: 80px;
+}
+@media screen and (max-width: 600px) {
+  .fragment header[role=banner] .titlearea {
+    font-size: 1.4rem;
+    font-weight: 400;
+  }
+}
+@media screen and (max-width: 500px) {
+  html,
+  body {
+    font-size: 11pt;
+  }
+  #appheader {
+    height: 40px;
+  }
+  .fragment header[role=banner] {
+    padding-left: 40px;
+    height: 40px;
+    padding-right: 0;
+  }
+  .fragment header[role=banner] .win-backbutton {
+    height: 40px;
+    width: 40px;
+    padding-top: 0;
+    font-size: 12pt;
+  }
+  .fragment header[role=banner] .titlearea {
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-left: 10px;
+  }
+  .fragment section[role=main] {
+    height: calc(100% - 40px);
+  }
+  .list-reports > .win-vertical .win-container,
+  .list-factures > .win-vertical .win-container {
+    margin: 10px 10px 0px 5px;
+  }
+  .list-reports .win-surface .win-container .win-itembox .win-template .dossier,
+  .list-factures .win-surface .win-container .win-itembox .win-template .dossier,
+  .list-reports .win-surface .win-container .win-itembox .win-template .facture,
+  .list-factures .win-surface .win-container .win-itembox .win-template .facture {
+    height: 150px;
+  }
+  .list-reports .win-surface .win-container .win-itembox .win-template .dossier .date,
+  .list-factures .win-surface .win-container .win-itembox .win-template .dossier .date,
+  .list-reports .win-surface .win-container .win-itembox .win-template .facture .date,
+  .list-factures .win-surface .win-container .win-itembox .win-template .facture .date {
+    left: 5px;
+    width: 50px;
+    height: 50px;
+    padding-top: 7px;
+  }
+  .list-reports .win-surface .win-container .win-itembox .win-template .dossier .client,
+  .list-factures .win-surface .win-container .win-itembox .win-template .dossier .client,
+  .list-reports .win-surface .win-container .win-itembox .win-template .facture .client,
+  .list-factures .win-surface .win-container .win-itembox .win-template .facture .client {
+    left: 5px;
+    width: 50px;
+    height: 50px;
+    top: 55px;
+    padding: 2px;
+  }
+  .list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail,
+  .list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail,
+  .list-reports .win-surface .win-container .win-itembox .win-template .facture .detail,
+  .list-factures .win-surface .win-container .win-itembox .win-template .facture .detail {
+    left: 60px;
+  }
+  .list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .pictocard,
+  .list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .pictocard,
+  .list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .pictocard,
+  .list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .pictocard {
+    min-width: 0;
+    font-family: 'Segoe UI Symbol';
+    padding-top: 0;
+  }
+  .list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .header .nummission,
+  .list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .header .nummission,
+  .list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .header .nummission,
+  .list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .header .nummission {
+    font-size: 1.2rem;
+    color: black;
+    margin-bottom: 3px;
+  }
+  .list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .header,
+  .list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .header,
+  .list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .header,
+  .list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .header {
+    margin-bottom: 4px;
+  }
+  .list-reports .win-surface .win-container .win-itembox .win-template .dossier .detail .content,
+  .list-factures .win-surface .win-container .win-itembox .win-template .dossier .detail .content,
+  .list-reports .win-surface .win-container .win-itembox .win-template .facture .detail .content,
+  .list-factures .win-surface .win-container .win-itembox .win-template .facture .detail .content {
+    display: block;
+  }
+  .list-reports .win-surface .win-container .win-itembox .win-template .dossier .retard,
+  .list-factures .win-surface .win-container .win-itembox .win-template .dossier .retard,
+  .list-reports .win-surface .win-container .win-itembox .win-template .facture .retard,
+  .list-factures .win-surface .win-container .win-itembox .win-template .facture .retard {
+    top: 5px;
+    right: 5px;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 400px) {
+  html,
+  body {
+    font-size: 10pt;
+  }
+}

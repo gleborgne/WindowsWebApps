@@ -1,0 +1,171 @@
+﻿@import "apptheme.less";
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 {
+    font-size: 1.8em;
+    letter-spacing: 0;
+    font-weight: 200;
+}
+
+h2 {
+    font-size: 1.6em;
+    letter-spacing: 0;
+    font-weight: 200;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.4em;
+}
+
+h5 {
+    font-size: 1.3em;
+}
+
+h6 {
+    font-size: 1.2em;
+}
+
+select {
+  min-width: 56px;
+  max-width: 368px;
+  min-height: 32px;
+  margin: 8px 0;
+  border : 2px solid #DDD;
+  background-clip: border-box;
+  background-image: none;
+  box-sizing: border-box;
+  border-radius: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.333;
+}
+select::-ms-value {
+  padding: 5px 12px 7px 12px;
+  margin: 0;
+}
+select::-ms-expand {
+  border: none;
+  padding : 0 0.2em;
+  /*margin-right: 5px;*/
+  margin-left: 3px;
+  margin-bottom: -2px;
+  font-size: 20px;
+}
+select[multiple] {
+  padding: 0 0 0 12px;
+  vertical-align: bottom;
+}
+option {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.333;
+}
+progress {
+  width: 180px;
+  height: 4px;
+  -webkit-appearance: none;
+}
+progress:not(:indeterminate) {
+  border-style: none;
+}
+progress::-ms-fill {
+  border-style: none;
+}
+progress.win-medium {
+  width: 296px;
+}
+progress.win-large {
+  width: 100%;
+}
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=tel],
+input[type=url],
+input[type=search],
+textarea,
+.win-textarea {
+  -ms-user-select: element;
+  border: 2px solid #DDD;
+  border-radius: 0;
+  margin: 8px 0px;
+  width: 296px;
+  min-width: 64px;
+  min-height: 28px;
+  background-clip: border-box;
+  box-sizing: border-box;
+  padding: 3px 6px 5px 10px;
+  outline: 0;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.333;
+}
+input::-ms-value {
+  margin: 0;
+  padding: 0;
+}
+textarea,
+.win-textarea {
+  resize: none;
+  overflow-y: auto;
+}
+input[type=radio],
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+input::-ms-check {
+  border-style: solid;
+  display: inline-block;
+  border-width: 2px;
+  background-clip: border-box;
+}
+
+input::-ms-clear,
+input::-ms-reveal {
+  padding-right: 2px;
+  margin-right: -8px;
+  margin-left: 2px;
+  margin-top: -8px;
+  margin-bottom: -8px;
+  height: 32px;
+}
+
+button, input[type=button], input[type=reset] {
+    border: 1px solid #999;
+    background-color: #DDD;
+    padding: 0.3em 0.8em;
+    text-align: center;
+    touch-action: manipulation;
+
+    &:focus {
+        border-color: @saretecBaseColor;
+    }
+
+    &:hover {
+        background-color: #BBB;
+    }
+
+    &:disabled {
+        opacity: 0.4;
+    }
+}

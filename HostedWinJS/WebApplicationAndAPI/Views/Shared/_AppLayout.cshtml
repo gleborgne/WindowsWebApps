@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@*<html>*@
+<html manifest="@Url.Action("Index", "AppCache", new { id= ViewBag.AppName })">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_AppLayout</title>
+    <style>
+        html, body{
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        .appcache-loader{
+
+        }
+    </style>
+    <style type="text/css" href="@Url.Content("~/applications/" + ViewBag.AppName +"/css/default.css").ToLower()"></style>
+
+    @RenderSection("headerstyles", required: false)
+    @RenderSection("headerscripts", required: false)
+</head>
+<body>
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

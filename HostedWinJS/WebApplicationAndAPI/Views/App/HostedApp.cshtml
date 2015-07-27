@@ -1,0 +1,85 @@
+﻿@{ 
+    Layout = null;
+}
+
+<!DOCTYPE html>
+@*<html>*@
+<html manifest="@Url.Action("Index", "AppCache", new { id= ViewBag.AppName })">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_AppLayout</title>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body.unloaded{
+            
+        }
+
+        .appcache-loader {
+            background-color: #774c7d;
+            color: white;
+            position: absolute;
+            left:0;
+            top:0;
+            right: 0;
+            bottom: 0;
+        }
+
+            .appcache-loader .title {
+                font-size: 1.2rem;
+            }
+            .appcache-loader .message {
+                width: 300px;
+                max-height: 40%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                margin: auto;
+                margin-top: 10%;
+            }
+
+            .appcache-loader .message .progress {
+                height : 5px;
+                background-color : rgba(255,255,255,0.3);
+            }
+
+            .appcache-loader .message .progress .cursor {
+                background-color : rgba(255,255,255,1);
+                margin-bottom: 10px;
+            }
+    </style>
+    <script type="text/javascript" src="@Url.Content("~/applications/common/scripts/appcache.js").ToLower()"></script>
+    <link rel="stylesheet" href="@Url.Content("~/applications/" + ViewBag.AppName +"/css/default.css").ToLower()" />
+    <link rel="stylesheet" href="@Url.Content("~/applications/common/scripts/winjs/css/ui-light.css").ToLower()" />
+
+    <script type="text/javascript">
+        var rootApiUrl = "@Url.Content("~/api/")";
+        var rootUrl = "@Url.Content("~/").ToLower()applications/hostedapp/";
+        var appVersion = "@System.Configuration.ConfigurationManager.AppSettings["HostedApp"]";
+    </script>
+    <script type="text/javascript" src="@Url.Content("~/applications/common/scripts/winjs/js/base.min.js").ToLower()"></script>
+    <script type="text/javascript" src="@Url.Content("~/applications/common/scripts/winjs/js/ui.min.js").ToLower()"></script>
+    <script type="text/javascript" src="@Url.Content("~/applications/common/scripts/jquery-2.1.4.min.js").ToLower()"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/applications/common/scripts/winjscontrib/winjscontrib.core.js").ToLower()"></script>
+    <script type="text/javascript" src="@Url.Content("~/applications/common/scripts/winjscontrib/winjscontrib.bindings.js").ToLower()"></script>
+    <script type="text/javascript" src="@Url.Content("~/applications/common/scripts/winjscontrib/winjscontrib.ui.animation.js").ToLower()"></script>
+    <script type="text/javascript" src="@Url.Content("~/applications/common/scripts/winjscontrib/winjscontrib.ui.navigator.js").ToLower()"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/applications/hostedapp/js/default.js").ToLower()"></script>
+</head>
+<body class="unloaded">
+    <div id="contentwrapper">
+        <div id="contenthost" data-win-control="WinJSContrib.UI.PageControlNavigator" data-win-options="{ home: '/pages/home/home.html' }"></div>
+    </div>
+</body>
+</html>
+
+
+
+
+

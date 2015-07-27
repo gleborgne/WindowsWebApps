@@ -1,0 +1,27 @@
+﻿CACHE MANIFEST
+
+# @Model.PageComment
+
+@model WebApplicationAndAPI.Models.AppCacheViewModel
+@{
+    Layout = null;
+    var root = Url.Content("~/");
+    Func<string, string> getItem = (elt) => elt.ToLower();
+}
+
+CACHE:
+
+#common files
+@foreach (var elt in Model.CommonFiles)
+{
+@:@getItem(elt)
+}
+
+#application files
+@foreach (var elt in Model.ApplicationFiles)
+{
+@:@getItem(elt)
+}
+
+NETWORK:
+*
